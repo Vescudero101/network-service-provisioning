@@ -1,0 +1,112 @@
+/* Simple and plain on purpose. */
+
+.panel-title {
+    text-style: bold;
+    margin-bottom: 1;
+}
+
+/* ---------- main menu ---------- */
+#menu-body {
+    height: 1fr;
+}
+#menu-panel {
+    width: 1fr;
+    border: round $primary;
+    padding: 0 1;
+}
+#info-panel {
+    width: 3fr;
+    border: round $primary;
+    padding: 0 1;
+}
+
+/* ---------- deploy screen ---------- */
+#deploy-body {
+    height: 1fr;
+}
+#left-column {
+    width: 1fr;
+    min-width: 26;
+}
+#job-status {
+    height: auto;
+    border: round $primary;
+    padding: 0 1;
+}
+#phase-list {
+    height: 1fr;
+    border: round $primary;
+}
+#action-bar {
+    height: auto;
+    border: round $primary;
+}
+#main-area {
+    width: 3fr;
+    height: 100%;
+    border: round $primary;
+}
+#choose {
+    height: auto;
+    margin: 1 2;
+}
+
+PhaseLabel {
+    width: 100%;
+    padding: 0 1;
+}
+PhaseLabel.pending { color: $text-muted; }
+PhaseLabel.running { color: $warning; text-style: bold; }
+PhaseLabel.waiting { color: $warning; text-style: bold; }
+PhaseLabel.done    { color: $success; }
+PhaseLabel.failed  { color: $error; text-style: bold; }
+PhaseLabel.skipped { color: $text-muted; }
+PhaseLabel.selected { text-style: reverse; }
+
+ServiceForm {
+    height: 100%;
+    padding: 0 1;
+}
+ServiceForm .form-row {
+    height: 1;
+    margin-bottom: 1;
+}
+ServiceForm .form-label {
+    width: 34;
+}
+ServiceForm .form-row Input,
+ServiceForm .form-row Select {
+    width: 1fr;
+}
+ServiceForm .field-help {
+    color: $text-muted;
+}
+OutputPanel {
+    height: 100%;
+}
+
+PlanView {
+    height: 100%;
+    padding: 0 1;
+}
+PlanView .plan-hint {
+    color: $text-muted;
+    margin-bottom: 1;
+}
+#plan-table {
+    height: 1fr;
+}
+
+/* ---------- config screen ---------- */
+#config-title {
+    margin: 0 1;
+    text-style: bold;
+}
+#config-text {
+    height: 1fr;
+    margin: 0 1;
+}
+
+ActionBar Button {
+    width: 100%;
+}

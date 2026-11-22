@@ -1,0 +1,11 @@
+router bgp {{ items.local_as }}
+ address-family ipv4 vrf {{ items.vrf }}
+{% for ip, neighbor in items.neighbors.items() %}
+{% if neighbor.action == "add" %}
+  neighbor {{ ip }} remote-as {{ neighbor.remote_as }}
+  neighbor {{ ip }} description {{ neighbor.description }}
+  neighbor {{ ip }} activate
+{% else %}
+  no neighbor {{ ip }} remote-as {{ neighbor.remote_as }}
+{% endif %}
+{% endfor %}

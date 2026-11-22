@@ -1,0 +1,26 @@
+service:
+  type: l3vpn
+  reference: CUST1-L3VPN
+  action: deploy
+devices:
+  RTR1:
+    vrfs:
+      CUST1:
+        rd: 65000:200
+        action: add
+    interfaces:
+      Gi0/0.200:
+        mode: routed
+        vlan_id: 200
+        vrf: CUST1
+        ip: 192.0.2.1
+        mask: 255.255.255.252
+        action: add
+    bgp:
+      local_as: 65000
+      vrf: CUST1
+      neighbors:
+        192.0.2.2:
+          remote_as: 65100
+          description: CUST1-L3VPN
+          action: add

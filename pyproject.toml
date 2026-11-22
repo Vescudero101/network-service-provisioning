@@ -1,0 +1,32 @@
+[project]
+name = "network-service-provisioning"
+version = "0.4.0"
+description = "Provision network services (L2 VLAN, L3VPN, ...) with pre-checks, backups, post-checks and audit"
+requires-python = ">=3.10"
+dependencies = [
+    "nornir",
+    "nornir-scrapli",
+    "pyyaml",
+    "jinja2",
+    "pynetbox",
+]
+
+[project.optional-dependencies]
+tui = ["textual>=8.2"]
+dev = ["pytest", "textual>=8.2"]
+
+[project.scripts]
+nsp = "nsp.main:main"
+
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+nsp = ["templates/**/*.j2", "ui/tui/*.tcss", "ui/tui/info/*.md"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

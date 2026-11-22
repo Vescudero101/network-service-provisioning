@@ -1,0 +1,6 @@
+VLAN Name                             Status    Ports
+---- -------------------------------- --------- -------------------------------
+1    default                          active    Gi0/3, Gi0/4
+200  CUST1_V200                       active    Gi1/1
+                                                Gi1/2
+300  OTHER_V300                       active

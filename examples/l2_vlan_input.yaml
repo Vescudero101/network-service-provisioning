@@ -1,0 +1,6 @@
+# Deploy an L2 VLAN. The path (SW1, SW2, ports) comes from your path script
+# (src/nsp/services/l2_vlan_paths.py: dummy data for now).
+reference: CUST1-V200
+action: deploy           # deploy | cease
+vlan_id: 200
+vlan_name: CUST1_V200

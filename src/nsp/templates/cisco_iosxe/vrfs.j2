@@ -1,0 +1,10 @@
+{% for name, vrf in items.items() %}
+{% if vrf.action == "add" %}
+vrf definition {{ name }}
+ rd {{ vrf.rd }}
+ address-family ipv4
+ exit-address-family
+{% else %}
+no vrf definition {{ name }}
+{% endif %}
+{% endfor %}

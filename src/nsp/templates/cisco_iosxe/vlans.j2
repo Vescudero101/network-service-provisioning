@@ -1,0 +1,11 @@
+{% for vlan_id, vlan in items.items() %}
+{% if vlan.action == "add" %}
+vlan {{ vlan_id }}
+ name {{ vlan.vlan_name }}
+{% if vlan.vni %}
+ vn-segment {{ vlan.vni }}
+{% endif %}
+{% else %}
+no vlan {{ vlan_id }}
+{% endif %}
+{% endfor %}

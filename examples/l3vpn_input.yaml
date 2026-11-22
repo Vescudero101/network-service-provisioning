@@ -1,0 +1,11 @@
+reference: CUST1-L3VPN
+action: deploy           # deploy | cease
+vrf_name: CUST1
+rd: "65000:200"
+device: RTR1
+interface: Gi0/0.200
+vlan_id: 200
+ip_address: 192.0.2.1/30
+local_as: 65000
+neighbor_ip: 192.0.2.2
+remote_as: 65100

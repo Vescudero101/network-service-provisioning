@@ -1,0 +1,4 @@
+# Cease an L2 VLAN. Only the VLAN ID is needed: the path script finds where the VLAN is.
+reference: CUST1-V200
+action: cease
+vlan_id: 200

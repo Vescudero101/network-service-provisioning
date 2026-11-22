@@ -1,0 +1,26 @@
+{% for name, intf in items.items() %}
+{% if intf.action == "remove" and intf.mode == "routed" %}
+no interface {{ name }}
+{% else %}
+interface {{ name }}
+{% if intf.action == "add" %}
+{% if intf.mode == "access" %}
+ switchport mode access
+ switchport access vlan {{ intf.vlan_id }}
+{% elif intf.mode == "trunk" %}
+ switchport mode trunk
+ switchport trunk allowed vlan add {{ intf.vlan_id }}
+{% elif intf.mode == "routed" %}
+ encapsulation dot1Q {{ intf.vlan_id }}
+ vrf forwarding {{ intf.vrf }}
+ ip address {{ intf.ip }} {{ intf.mask }}
+{% endif %}
+{% else %}
+{% if intf.mode == "access" %}
+ no switchport access vlan
+{% elif intf.mode == "trunk" %}
+ switchport trunk allowed vlan remove {{ intf.vlan_id }}
+{% endif %}
+{% endif %}
+{% endif %}
+{% endfor %}

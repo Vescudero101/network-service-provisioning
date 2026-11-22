@@ -1,0 +1,19 @@
+service:
+  type: l2_vlan
+  reference: CUST1-V200-MIGRATION   # example of an intent with a migration: one port added, one removed
+  action: deploy
+devices:
+  SW1:
+    vlans:
+      200:
+        vlan_name: CUST1_V200
+        action: add
+    interfaces:
+      Gi0/1:
+        mode: trunk
+        vlan_id: 200
+        action: remove
+      Gi0/5:
+        mode: trunk
+        vlan_id: 200
+        action: add
